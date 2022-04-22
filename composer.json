@@ -1,13 +1,12 @@
 {
-  "name": "aj0er",
+  "name": "aj0er/gymnasiearbete",
   "type": "project",
   "require": {
     "twig/twig": "^3.3",
     "ralouphie/mimey": "^1.0",
     "ext-pdo": "*",
     "ext-simplexml": "*",
-    "ext-dom": "*",
-    "hanneskod/classtools": "^1.2"
+    "ext-dom": "*"
   },
   "autoload": {
     "psr-4": {
