@@ -1,0 +1,24 @@
+{
+  "name": "aj0er",
+  "type": "project",
+  "require": {
+    "twig/twig": "^3.3",
+    "ralouphie/mimey": "^1.0",
+    "ext-pdo": "*",
+    "ext-simplexml": "*",
+    "ext-dom": "*",
+    "hanneskod/classtools": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "App/src",
+      "Framework\\": "Framework/src"
+    }
+  },
+  "authors": [
+    {
+      "name": "aj0er",
+      "email": "ajoeaar@gmail.com"
+    }
+  ]
+}

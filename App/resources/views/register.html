@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ include('fragments/head.html') }}
+    <title>Registrera ett konto</title>
+</head>
+<body>
+<div class="form">
+    <h1 class="title">Registrera konto</h1>
+    <form action="/auth/register" method="post">
+        <div class="field">
+            <input class="input" type="email" name="username" placeholder="E-post">
+        </div>
+        <div class="field" style="margin: 0;">
+            <input class="input" type="password" name="password" placeholder="Lösenord">
+        </div>
+        <div class="field">
+            <input class="input" type="password" name="confirm" placeholder="Bekräfta lösenord">
+        </div>
+
+        <input class="button" type="submit" value="Skapa konto"/>
+    </form>
+</div>
+{{ include('fragments/assets.html') }}
+<link href="/static/css/auth.css" rel="stylesheet"/>
+<script>
+    showStatusMessage([
+        "Lösenorden matchar inte!",
+        "Det finns redan en användare med det namnet!",
+        "Felaktigt format."
+    ]);
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ include('fragments/head.html') }}
+    <title>Tavlor | {{ board.name }}</title>
+</head>
+<body>
+{{ include('fragments/navbar.html') }}
+<div class="threads">
+    <h1 class="title">Trådar</h1>
+    <div style="margin-top: 20px">
+        {% if user is not null %}
+            <a class="button" href="/boards/{{ board.id }}/createThread">Skapa ny</a>
+        {% endif %}
+
+        {% for thread in threads %}
+            <div class="thread">
+                <a href="/threads/{{ thread.id }}">{{ thread.name }}</a>
+                <p>Skapad {{ thread.dateCreatedFormatted }} av {{ thread.user.name }}</p>
+            </div>
+            <br>
+        {% endfor %}
+    </div>
+</div>
+
+<link href="/static/css/main.css" rel="stylesheet"/>
+{{ include('fragments/assets.html') }}
+</body>
+</html>

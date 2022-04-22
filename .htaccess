@@ -1,0 +1,3 @@
+Options -MultiViews
+RewriteEngine On
+RewriteRule ^(.+)$ App/index.php [QSA,L]

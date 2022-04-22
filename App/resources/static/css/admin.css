@@ -1,0 +1,24 @@
+main {
+    padding: 20px;
+}
+
+.adminNav {
+    display: inline-block;
+    border: 2px solid black;
+    padding: 20px;
+    background-color: white;
+}
+
+.adminNav a {
+    text-decoration: none;
+    color: #29866e;
+}
+
+.user {
+    display: inline-block;
+    border: 2px solid black;
+    padding: 20px;
+    width: 350px;
+    margin-top: 10px;
+    background-color: white;
+}

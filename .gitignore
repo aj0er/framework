@@ -1,0 +1,11 @@
+.idea/
+composer.phar
+vendor/
+compilation_cache/
+zip.sh
+ga.zip
+deploy-config.sh
+Framework/composer.json
+Framework/composer.lock
+Framework/.gitignore
+Framework/vendor
