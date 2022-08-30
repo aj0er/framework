@@ -26,6 +26,7 @@ class Main {
      * Hanterar en inkommande HTTP-förfrågan och konstruerar en {@link HttpRequest} från den.
      */
     function handle(){
+        $timingStart = hrtime(true);
         $uri = $_SERVER["REQUEST_URI"]; // Den faktiskt inkommande URL-en
 
         $queryPos = strpos($uri, '?');
@@ -42,7 +43,7 @@ class Main {
                 $body = file_get_contents('php://input'); // Vid POST och PUT finns body i php://input
         }
 
-        $request = new HttpRequest($requestedRoute, $uri, $method, getallheaders(), $queryParams, $body);
+        $request = new HttpRequest($requestedRoute, $uri, $method, getallheaders(), $queryParams, $body, $timingStart);
         $this->app->handle($request);
     }
     

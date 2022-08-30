@@ -38,6 +38,11 @@ class HttpRequest
      */
     public ?string $body;
 
+    /**
+     * @var int Den högupplösta tiden då förfrågan började hanteras, används för att mäta prestanda
+     */
+    public int $timingStart;
+
     private array $meta = array();
 
     /**
@@ -49,7 +54,7 @@ class HttpRequest
      * @param string|null $body Den inkommande bodyn, om sådan finns.
      */
     public function __construct(array $route, string $rawRoute, string $method,
-                                array $headers, array $query, ?string $body)
+                                array $headers, array $query, ?string $body, int $timingStart)
     {
 
         $this->route = $route;
@@ -58,6 +63,7 @@ class HttpRequest
         $this->headers = $headers;
         $this->query = $query;
         $this->body = $body;
+        $this->timingStart = $timingStart;
     }
 
     /**

@@ -202,6 +202,8 @@ class RequestExecutor
             ]);
         }
 
+        $timing = (hrtime(true) - $request->timingStart) / 1_000_000;
+
         return strtr("◆ {blue}{method} {yellow}{route}{yellow}{controller}{codeColor} [{code}] {blue}({timing}){reset}", [
             "{blue}" => ConsoleColors::BLUE->value,
             "{method}" => $request->method,
@@ -212,7 +214,7 @@ class RequestExecutor
             "{reset}" => ConsoleColors::RESET->value,
             "{controller}" => $controllerText,
             "{blue}" => ConsoleColors::BLUE->value,
-            "{timing}" => "20ms"
+            "{timing}" => $timing . "ms"
         ]);
     }
 
