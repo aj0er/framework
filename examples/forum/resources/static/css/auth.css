@@ -1,0 +1,14 @@
+body {
+    background-color: #daa25b;
+    height: 100rem;
+    overflow: auto;
+}
+
+.form {
+    margin: 10rem auto 0;
+    border-radius: 4px;
+    width: 25rem;
+    text-align: center;
+    padding: 15px;
+    background-color: rgb(233, 233, 233);
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ include('fragments/head.html') }}
+    <title>Admin | Användare</title>
+</head>
+<body>
+{{ include('fragments/navbar.html') }}
+<main>
+    <a href="/admin">Tillbaka</a>
+    <h1 class="title">Användare</h1>
+
+    <div style="margin-top: 20px">
+        {% for user in users %}
+            <div>
+                <div class="user {{ user.roleName != 'admin' ? 'editUser': ''}}">
+                    <form>
+                        <p><b>E-post: </b>{{ user.email }}</p>
+                        {% if user.roleName != "admin" %}
+                            {% if user.name is not null %}
+                                <p><b>Namn: </b>
+                                    <label>
+                                        <input type="text" class="" name="name" value="{{ user.name }}">
+                                    </label>
+                                </p>
+                            {% else %}
+                                <p><b>Inget namn, ID: </b> {{ user.id }}</p>
+                            {% endif %}
+                            <b>Roll: </b>
+
+                            <label>
+                                <select class="roleSelect" name="role" data-value="{{ user.roleName }}">
+                                    <option value="user">Användare</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                            </label><br><br>
+
+                            <button type="button" class="saveBtn" data-user-id="{{ user.id }}">Spara ändringar</button>
+                            <button type="button" class="deleteBtn" data-user-id="{{ user.id }}">Ta bort</button>
+                        {% else %}
+                            <p><b>Namn:</b> {{ user.name }}</p>
+                            <p><b>Roll:</b> {{ user.roleName }}</p>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</main>
+
+{{ include('fragments/assets.html') }}
+<link href="/static/css/admin.css" rel="stylesheet"/>
+<script src="/static/js/admin/users.js"></script>
+</body>
+</html>

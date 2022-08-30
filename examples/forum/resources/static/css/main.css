@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    background-color: bisque;
+}
+
+.button {
+    cursor: pointer;
+    background-color: black;
+    border: none;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    color: red;
+}
+
+.nav-right {
+    float: right;
+}
+
+nav {
+    color: white;
+    padding: 20px;
+    background-color: black;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav .btn {
+    background-color: white;
+    padding: 10px;
+    color: black;
+}
+
+.btn.btn-admin {
+    background-color: #064235;
+    color: white;
+}
+
+nav .register {
+    background-color: #5475bb;
+    color: white;
+}
+
+nav .username {
+    color: white; 
+    font-size: 18px;
+}
+
+nav .nav-text {
+    margin-right: 5px;
+}
+
+.thread {
+    border: 1px solid black;
+    color: black;
+    padding: 20px;
+    text-align: left;
+}
+
+.thread a {
+    font-size: 32px;
+
+    text-align: left;
+    color: black;
+    text-decoration: none;
+}
+
+.field {
+    margin-bottom: 10px;
+}
+
+.boards {
+    padding: 10px;
+}
+
+.threads {
+    padding: 20px;
+}
+
+.board {
+    gap: 10px;
+    background-color: darksalmon;
+    width: 250px;
+    margin: 10px;
+    border: 1px solid black;
+    color: black;
+    padding: 20px;
+    display: flex;
+}
+
+.board a {
+    color: black;
+    font-size: 19px;
+    text-decoration: none;
+}

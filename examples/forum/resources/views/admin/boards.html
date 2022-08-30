@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ include('fragments/head.html') }}
+    <title>Admin | Tavlor</title>
+</head>
+<body>
+{{ include('fragments/navbar.html') }}
+<div class="boards">
+    <a href="/admin">Tillbaka</a>
+    <h1 class="title">Tavlor</h1>
+    <h3>Skapa en ny</h3>
+    <form action="/api/boards" method="post">
+        <input type="text" name="name" placeholder="Tavlans namn"/>
+        <input type="submit"/>
+    </form>
+
+    <div style="margin-top: 20px">
+        {% for board in boards %}
+            <div class="board">
+                <a href="/boards/{{ board.id }}">{{ board.name }}</a>
+                <a href="#" class="delete-board-btn" data-board-id="{{ board.id }}"><b>X</b></a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{{ include('fragments/assets.html') }}
+<script>
+    showStatusMessage([
+        "Ogiltigt namn!"
+    ]);
+</script>
+<link href="/static/css/admin.css" rel="stylesheet"/>
+<script src="/static/js/admin/boards.js"></script>
+</body>
+</html>

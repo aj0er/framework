@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ include('fragments/head.html') }}
+    <title>Logga in</title>
+</head>
+<body>
+<div class="form">
+    <h1 class="title">Logga in</h1>
+    <form action="/auth/login" method="post">
+        <div class="field">
+            <input class="input" type="email" name="username" placeholder="E-post" required>
+        </div>
+        <div class="field">
+            <input class="input" type="password" name="password" placeholder="Lösenord" required>
+        </div>
+
+        <span>Inget konto? <a href="/register">Registrera</a></span><br><br>
+        <input class="button is-dark" type="submit" value="Logga in"/>
+    </form>
+</div>
+{{ include('fragments/assets.html') }}
+<link href="/static/css/auth.css" rel="stylesheet"/>
+<script>
+    showStatusMessage([
+        "Felaktigt användarnamn eller lösenord.",
+        "Du har loggats ut.",
+        "Ditt konto har blivit borttaget."
+    ]);
+</script>
+</body>
+</html>
