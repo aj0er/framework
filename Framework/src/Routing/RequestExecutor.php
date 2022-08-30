@@ -181,11 +181,11 @@ class RequestExecutor
     private function generateRequestLogMessage(HttpRequest $request, ?RoutingResult $result): string
     {
         $code = http_response_code();
-        if ($code >= 200 && $code < 300) {
+        if ($code >= 200 && $code < 300) { // OK
             $color = ConsoleColors::GREEN->value;
-        } else if ($code >= 400 && $code < 600) {
+        } else if ($code >= 400 && $code < 600) { // Error
             $color = ConsoleColors::RED->value;
-        } else {
+        } else { // Unknown
             $color = ConsoleColors::YELLOW->value;
         }
 
@@ -193,12 +193,27 @@ class RequestExecutor
         if ($result != null) {
             $className = $result->route->handler[0];
             $methodName = $result->route->handler[1];
-            // Namnet på controller-klassen och metoden
-            $controllerText = ConsoleColors::YELLOW->value . "(" . $className . "#" . $methodName . ")" . ConsoleColors::RESET->value;
+
+            $controllerText = strtr(" {yellow}({className}#{methodName}){reset}", [
+                "{yellow}" => ConsoleColors::YELLOW->value,
+                "{className}" => $className,
+                "{methodName}" => $methodName,
+                "{reset}" => ConsoleColors::RESET->value
+            ]);
         }
 
-        return "◆ " . ConsoleColors::BLUE->value . $request->method . " " . ConsoleColors::GREEN->value
-            . $request->rawRoute . " " . $color . "[" . $code . "]" . ConsoleColors::RESET->value . " " . $controllerText;
+        return strtr("◆ {blue}{method} {yellow}{route}{yellow}{controller}{codeColor} [{code}] {blue}({timing}){reset}", [
+            "{blue}" => ConsoleColors::BLUE->value,
+            "{method}" => $request->method,
+            "{yellow}" => ConsoleColors::YELLOW->value,
+            "{route}" => $request->rawRoute,
+            "{codeColor}" => $color,
+            "{code}" => $code,
+            "{reset}" => ConsoleColors::RESET->value,
+            "{controller}" => $controllerText,
+            "{blue}" => ConsoleColors::BLUE->value,
+            "{timing}" => "20ms"
+        ]);
     }
 
     /**
