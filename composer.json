@@ -1,6 +1,6 @@
 {
-  "name": "aj0er/gymnasiearbete",
-  "type": "project",
+  "name": "aj0er/framework",
+  "type": "library",
   "require": {
     "twig/twig": "^3.3",
     "ralouphie/mimey": "^1.0",
@@ -10,8 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "App\\": "App/src",
-      "Framework\\": "Framework/src"
+      "Framework\\": "src"
     }
   },
   "authors": [
