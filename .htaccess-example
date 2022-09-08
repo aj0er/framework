@@ -1,0 +1,5 @@
+# Exempel på hur man kan använda HTAccess med shared hosting som t.ex. CPanel
+
+Options -MultiViews
+RewriteEngine On
+RewriteRule ^(.+)$ App/index.php [QSA,L]
