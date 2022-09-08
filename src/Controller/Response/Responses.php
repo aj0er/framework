@@ -24,6 +24,7 @@ class Responses
     /**
      * Returnerar en HTTP status-kod.
      * @param int $code HTTP status-kod.
+     * @return int
      */
     function statusRaw(int $code): int
     {
@@ -33,7 +34,7 @@ class Responses
     /**
      * Returnerar en HTTP status-kod.
      * @param StatusCode $code Enum värde för en vanlig status-kod.
-     * @return int HTTP status-kod.
+     * @return int
      */
     function status(StatusCode $code): int {
         return $this->statusRaw($code->value);
@@ -42,7 +43,7 @@ class Responses
     /**
      * Returnerar en sträng tillsammans med en HTTP-statuskod.
      * @param int $code HTTP status-kod.
-     * @param string $text Strängen att returnera.
+     * @param string $text
      */
     function statusText(int $code, string $text): StatusTextResponse {
         return new StatusTextResponse($code, $text);
@@ -50,7 +51,7 @@ class Responses
 
     /**
      * Returnerar och visar/laddar ned en fil.
-     * @param string $fileName
+     * @param string $fileName Filens sökväg.
      * @return FileResponse
      */
     function file(string $fileName): FileResponse {
