@@ -2,7 +2,7 @@
 Detta är mitt gymnasiearbete i kursen Webbserverprogrammering 1.  
 Syftet var att utveckla ett eget webbramverk i objektorienterad PHP samt en tillhörande demo-applikation (simpelt forum).  
 
-All kod för ramverket finns under "Framework" medan "App" innehåller demo-applikationen. Demo-applikationen och specifikt "App.php" är en bra utgångspunkt för den som vill veta hur ramverket kan användas.
+All kod för ramverket finns under "src" medan "examples/forum" innehåller demo-applikationen. Demo-applikationen och specifikt "App.php" är en bra utgångspunkt för den som vill veta hur ramverket kan användas.
 
 **Ramverkets innehåll**
 - Router
