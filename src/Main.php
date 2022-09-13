@@ -16,10 +16,16 @@ class Main {
     private Application $app;
 
     /**
+     * @var string|null Subpath som används om sidan ska serveras från en undersida, t.ex. example.com/app/
+     */
+    private ?string $subPath;
+
+    /**
      * @param Application $app Applikationen som servern ska köra.
      */
-    function __construct(Application $app){
+    function __construct(Application $app, ?string $subPath = null){
         $this->app = $app;
+        $this->subPath = $subPath;
     }
 
     /**
@@ -28,6 +34,13 @@ class Main {
     function handle(){
         $timingStart = hrtime(true);
         $uri = $_SERVER["REQUEST_URI"]; // Den faktiskt inkommande URL-en
+
+        if($this->subPath != null){
+            $pos = strpos($uri, $this->subPath);
+            if ($pos !== false) {
+                $uri = substr_replace($uri, "", $pos, strlen($this->subPath));
+            }
+        }
 
         $queryPos = strpos($uri, '?');
         $uri = substr($uri, 0, $queryPos != false ? $queryPos : strlen($uri)); // Strippa URI från querystringen
