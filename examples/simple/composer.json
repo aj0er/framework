@@ -1,0 +1,25 @@
+{
+    "name": "aj0er/simple",
+    "type": "project",
+    "license": "mit",
+    "autoload": {
+        "psr-4": {
+            "Simple\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "aj0er",
+            "email": "ajoeaar@gmail.com"
+        }
+    ],
+     "repositories": [
+        {
+            "type": "path",
+            "url": "../../"
+        }
+    ],
+    "require": {
+       "aj0er/framework": "dev-main" 
+    } 
+}
