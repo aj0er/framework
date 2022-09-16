@@ -101,6 +101,15 @@ class SQLStore
             return $value->value;
         }
 
+        // Om objektet inte är primitivt går det förmodligen inte att spara i SQL, gör om det till en JSON-sträng.
+        if(!is_scalar($value)){
+            return json_encode($value);
+        }
+
+        if(is_bool($value)){ // TODO: Detta krävs i SQLite, hur ser det ut för andra databaser?
+            return $value ? 1 : 0;
+        }
+
         return $value;
     }
 
@@ -168,7 +177,6 @@ class SQLStore
     protected function execute(string $query, array $params = []): PDOStatement
     {
         $params = $this->convertValues($params);
-
         $stmt = $this->db->prepare($query);
         $stmt->execute($params);
 
