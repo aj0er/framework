@@ -355,7 +355,9 @@ class RequestExecutor
         } else if ($type->getName() === HttpRequest::class) {
             return $request;
         } else {
-            return null;
+            // Försök att mappa datan som JSON till objektet
+            $decoded = json_decode($request->body, true);
+            return $this->mapper->mapObjectConstructor($decoded, new ReflectionClass($type->getName()));
         }
     }
 

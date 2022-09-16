@@ -9,3 +9,4 @@ Framework/composer.json
 Framework/composer.lock
 Framework/.gitignore
 Framework/vendor
+scorecard-server
