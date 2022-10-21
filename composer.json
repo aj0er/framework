@@ -2,7 +2,7 @@
   "name": "aj0er/framework",
   "type": "library",
   "require": {
-    "twig/twig": "^3.3",
+    "twig/twig": "^3.4.3",
     "ralouphie/mimey": "^1.0",
     "ext-pdo": "*",
     "ext-simplexml": "*",
